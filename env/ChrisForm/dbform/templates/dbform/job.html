@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/test.css' %}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Form</title>
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'dbform/img/OrokonuiEcoBurst.ico' %}" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/plugins/bootstrap/css/bootstrap.css' %}" />
+
+    <!-- Bootstrap -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+
+    <!-- Waves Effect Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/plugins/node-waves/waves.css' %}" />
+
+    <!-- Animation Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/plugins/animate-css/animate.css' %}" />
+
+    <!-- Morris Chart Css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/plugins/morrisjs/morris.css' %}" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/css/style.css' %}" />
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dbform/css/themes/all-themes.css' %}" />
+
+    <!-- Leaflet Map -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+        crossorigin=""></script>
+
+
+    <!-- JQuery -->
+
+    <script src="{% static 'dbform/jquery-3.3.1.min.js' %}"></script>
+
+    <script src="{% static 'dbform/mqttws31.js' %}" type="text/javascript"></script>
+
+    <!-- Decrypt -->
+    <script type="text/javascript" src="{% static 'dbform/Decrypt.js' %}"></script>
+
+    <!-- Custom -->
+</head>
+<body>
+
+
+        <div class="block-header">
+                <a href="{% url 'job' %}"> Job </a>
+                <a href="{% url 'client' %}"> Client </a>
+                <a href="{% url 'volunteer' %}"> Volunteer </a>
+            </div>
+
+            <!-- Vertical Layout -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                JOB
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                                <form method="post" action="{% url 'job' %}">
+                                        {% csrf_token %}
+                                        <label for="email_address">Volunteer</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="email_address" name="volunteer" class="form-control" placeholder="Enter your first name">
+                                            </div>
+                                        </div>
+                                        <label for="email_address">Client</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="email_address" name="client" class="form-control" placeholder="Enter your last name">
+                                            </div>
+                                        </div>
+                                        <label for="email_address">Date</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="date" name="date">
+                                            </div>
+                                        </div>
+                                        <label for="email_address">Summary</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="email_address" name="summary" class="form-control" placeholder="Enter your email">
+                                            </div>
+                                        </div>
+                                        <label for="email_address">Location</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="email_address" name="location" class="form-control" placeholder="Enter your email">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button type="submit">SUBMIT</button>
+                                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Vertical Layout -->
+
+    <!-- Jquery Core Js -->
+    <script src="{% static 'dbform/plugins/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="{% static 'dbform/plugins/bootstrap/js/bootstrap.js' %}"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="{% static 'dbform/plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'dbform/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'dbform/plugins/node-waves/waves.js' %}"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="{% static 'dbform/plugins/jquery-countto/jquery.countTo.js' %}"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="{% static 'dbform/plugins/raphael/raphael.min.js' %}"></script>
+    <script src="{% static 'dbform/plugins/morrisjs/morris.js' %}"></script>
+
+    <!-- ChartJs -->
+    <script src="{% static 'dbform/plugins/chartjs/Chart.bundle.js' %}"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="{% static 'dbform/plugins/flot-charts/jquery.flot.js' %}"></script>
+    <script src="{% static 'dbform/plugins/flot-charts/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'dbform/plugins/flot-charts/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'dbform/plugins/flot-charts/jquery.flot.categories.js' %}"></script>
+    <script src="{% static 'dbform/plugins/flot-charts/jquery.flot.time.js' %}"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="{% static 'dbform/plugins/jquery-sparkline/jquery.sparkline.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'dbform/js/admin.js' %}"></script>
+    <script src="{% static 'dbform/js/pages/index.js' %}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'dbform/js/demo.js' %}"></script>
+</body>
+
+</html>
